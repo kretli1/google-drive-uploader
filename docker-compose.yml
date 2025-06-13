@@ -1,20 +1,14 @@
 version: '3.8'
 
 services:
-  google-drive-uploader:
-    build: 
-      context: .
-      dockerfile: Dockerfile
-    image: google-drive-uploader:latest
-    container_name: google-drive-uploader
-    command: ["node","index.js"]
+  drive-uploader:
+    build: .
+    command: ["node", "src/index.js"]
     ports:
-      - "${PORT}:${PORT}"
+      - "${PORT:-3000}:3000"
     volumes:
       - /tmp:/tmp
     deploy:
       replicas: 1
       restart_policy:
         condition: any
-    env_file:
-      - .env
