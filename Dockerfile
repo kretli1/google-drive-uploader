@@ -5,17 +5,16 @@ FROM node:18-alpine
 WORKDIR /usr/src/app
 
 # 3) Copia apenas package.json para instalar dependências
-#    a partir da sub-pasta google-drive-uploader
-COPY google-drive-uploader/package*.json ./
+COPY package.json package-lock.json* ./
 
-# 4) Instala dependências de produção
+# 4) Instala deps
 RUN npm install --production
 
-# 5) Copia TODO o código da pasta google-drive-uploader para /usr/src/app
-COPY google-drive-uploader/ ./
+# 5) Copia TODO o código
+COPY src/ ./src/
 
-# 6) Expõe a porta da API
+# 6) Expõe porta da API
 EXPOSE 3000
 
-# 7) Comando padrão para iniciar a aplicação
-CMD ["node", "index.js"]
+# 7) Comando padrão
+CMD ["node", "src/index.js"]
