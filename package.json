@@ -1,23 +1,14 @@
 {
-  "name": "google-drive-uploader",
+  "name": "drive-uploader",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
-  "keywords": [
-    "google-drive",
-    "uploader",
-    "api",
-    "node"
-  ],
-  "author": "",
-  "license": "ISC",
-  "description": "API to upload files to Google Drive",
   "dependencies": {
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "googleapis": "^148.0.0"
+    "googleapis": "^148.0.0",
+    "mime-types": "^3.0.0"
   }
 }
